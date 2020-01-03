@@ -16,4 +16,12 @@ lib_LTLIBRARIES = afxd.la
 afxd_la_LDFLAGS = -module -avoid-version -shared
 afxd_la_SOURCES =  afxd.c
 
-EXTRA_DIST = README.md includes
+EXTRA_DIST = README.md includes scripts
+
+
+install-data-local:
+	mkdir -p $(prefix)/lib/afxd/
+	install -D scripts/* $(prefix)/lib/afxd/
+
+uninstall-local:
+	rm -rf $(prefix)/lib/afxd
