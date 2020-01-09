@@ -76,7 +76,6 @@ void* process(void* data)
 	}
 
 	// call lua script
-	sprintf(buf, "%s/%s", __plugin__.pdir, __plugin__.name);
 	L = luaL_newstate();
 	luaL_openlibs(L);
 	
@@ -86,9 +85,12 @@ void* process(void* data)
 	lua_settable(L,-3);
 	
 	lua_pushstring(L,"root");
-	lua_pushstring(L, rq->client->port_config->htdocs);
+	htdocs(rq, buf);
+	lua_pushstring(L, buf);
 	lua_settable(L,-3);
 	
+	sprintf(buf, "%s/%s", __plugin__.pdir, __plugin__.name);
+
 	lua_pushstring(L,"apiroot");
 	lua_pushstring(L, buf);
 	lua_settable(L,-3);
