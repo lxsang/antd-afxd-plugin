@@ -1,8 +1,10 @@
 #define PLUGIN_IMPLEMENT 1
 #include <dlfcn.h>
 #include <antd/plugin.h>
+#include <antd/scheduler.h>
 #include <antd/ws.h>
 #include <sys/select.h>
+#include <string.h>
 #include "includes/lua.h"
 #include "includes/lualib.h"
 #include "includes/lauxlib.h"

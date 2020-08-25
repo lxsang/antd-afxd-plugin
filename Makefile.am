@@ -21,7 +21,7 @@ EXTRA_DIST = README.md includes scripts
 
 install-data-local:
 	mkdir -p $(prefix)/lib/afxd/
-	install -D scripts/* $(prefix)/lib/afxd/
+	install -m 0644 $(shell pwd)/scripts/afxd.lua $(prefix)/lib/afxd/
 
 uninstall-local:
 	rm -rf $(prefix)/lib/afxd
